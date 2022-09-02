@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "868896044240",
+    "project_id": "why-do-i-awake-nights",
+    "storage_bucket": "why-do-i-awake-nights.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868896044240:android:ad760e313040bad9125ad5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_why_do_i_awake_nights1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868896044240-4lihrhohg4hbot81j020qcapig6l07gk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClSYzivHlSFbY2lSo0M2yrXbPmT0HojXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868896044240-4lihrhohg4hbot81j020qcapig6l07gk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "868896044240-srja9uo6rnbtp86ld76ou27826lulbrt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterWhyDoIAwakeNights"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
