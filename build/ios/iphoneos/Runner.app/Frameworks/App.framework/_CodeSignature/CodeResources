@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		i8agsxwbR4Gx6SNtK6VL+HlXULg=
+		LxLqLTVf2GAu5UtZKQXDLO+WhRI=
 		</data>
 		<key>flutter_assets/assets/link.png</key>
 		<data>
@@ -32,21 +32,9 @@
 		<data>
 		mcmNrC70e/OT89y/p5EgxkVsLrs=
 		</data>
-		<key>flutter_assets/isolate_snapshot_data</key>
-		<data>
-		eQjUSN4q35Uzd/55EBjW4jV/nYU=
-		</data>
-		<key>flutter_assets/kernel_blob.bin</key>
-		<data>
-		+kXvd/jOlUsq26kHl8AG2upgc6g=
-		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
-		</data>
-		<key>flutter_assets/vm_snapshot_data</key>
-		<data>
-		EGrx+ceECFYMCwgndwmfZXgJFDU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -77,11 +65,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i8agsxwbR4Gx6SNtK6VL+HlXULg=
+			LxLqLTVf2GAu5UtZKQXDLO+WhRI=
 			</data>
 			<key>hash2</key>
 			<data>
-			TFOMBli3qQRD3FOlEb5FdFbv6npeKUzTyUSvnN1/lnE=
+			KGhK8djvswk9HH5CaoURKw28s+EmC9om3vG4zpfCsBw=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/link.png</key>
@@ -117,28 +105,6 @@
 			BugRRJlkJdABYrpi+ZDcvZjsh+EPQ4Uf2ST65b83vlc=
 			</data>
 		</dict>
-		<key>flutter_assets/isolate_snapshot_data</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eQjUSN4q35Uzd/55EBjW4jV/nYU=
-			</data>
-			<key>hash2</key>
-			<data>
-			C7/dHOIHQrKZs9QJ05ge+h+ASynlvfrCK18NZnYRNOw=
-			</data>
-		</dict>
-		<key>flutter_assets/kernel_blob.bin</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+kXvd/jOlUsq26kHl8AG2upgc6g=
-			</data>
-			<key>hash2</key>
-			<data>
-			AxToBYAn7+yoohsENSFcE/wX4kj7H2Em8fig5lKH/Dg=
-			</data>
-		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<dict>
 			<key>hash</key>
@@ -148,17 +114,6 @@
 			<key>hash2</key>
 			<data>
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
-			</data>
-		</dict>
-		<key>flutter_assets/vm_snapshot_data</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EGrx+ceECFYMCwgndwmfZXgJFDU=
-			</data>
-			<key>hash2</key>
-			<data>
-			cK33CI3s1P2SzbU//6hag8jxyl1KnDk2YkEoRBtUvuc=
 			</data>
 		</dict>
 	</dict>

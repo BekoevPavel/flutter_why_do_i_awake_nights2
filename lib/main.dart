@@ -3,10 +3,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_why_do_i_awake_nights1/data/chat_repository_impl.dart';
 import 'package:flutter_why_do_i_awake_nights1/data/main_repository_impl.dart';
 import 'package:flutter_why_do_i_awake_nights1/presentation/auth/bloc/auth_cubit.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/calendar/bloc/calendar_cubit.dart';
 import 'package:flutter_why_do_i_awake_nights1/presentation/calendar/pages/main_calendar_page.dart';
-import 'package:flutter_why_do_i_awake_nights1/presentation/calendar/states/calendar_state.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/chat/bloc/chat_cubit.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/chat/pages/chat_page.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/post/bloc/post_cubit.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/post/pages/post_page.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/post/pages/add_tag_page.dart';
 
 import 'data/models/tag_model.dart';
 import 'presentation/auth/pages/sign_in_screen.dart';
@@ -16,15 +22,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 300;
   await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
-Widget _buildHomePage() {
+Widget _buildHomePage(BuildContext context) {
   return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: ((context, snapshot) {
         if (snapshot.hasData) {
-          return const MainCalendarPage();
+          return MainCalendarPage();
         } else {
           return const SignInScreen();
         }
@@ -37,13 +44,38 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    CalendarController contr = CalendarController();
-    var t = contr.findLastDay(9);
-    print(t);
+    FirebaseFirestore.instance.collection('posts').snapshots().listen(
+      (event) {
+        event.docs.length;
+      },
+    );
+
+    // ChatRepositoryImpl().addMessage(
+    //     date: DateTime.now(), message: 'Hello', imagesUrl: ['img1', 'img2']);
+
+    // ChatRepositoryImpl().getMessage().listen(
+    //   (event) {
+    //     print('----lenght ${event.length}');
+    //     for (var i in event) {
+    //       print('mes: ${i.message},');
+    //     }
+    //   },
+    // );
+
     return MultiBlocProvider(
         providers: [
           BlocProvider(
             create: ((context) => AuthCubit()),
+          ),
+          BlocProvider(
+            create: ((context) =>
+                CalendarCubit()..updateMonth(DateTime.now().month)),
+          ),
+          BlocProvider(
+            create: ((context) => PostCubit()),
+          ),
+          BlocProvider(
+            create: ((context) => ChatCubit()),
           ),
         ],
         child: MaterialApp(
@@ -57,11 +89,14 @@ class MyApp extends StatelessWidget {
               // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
             ),
           ),
-          home: _buildHomePage(),
+          home: _buildHomePage(context),
           routes: {
             SignUpScreen.id: ((context) => const SignUpScreen()),
             SignInScreen.id: ((context) => const SignInScreen()),
-            MainCalendarPage.id: ((context) => const MainCalendarPage())
+            MainCalendarPage.id: ((context) => MainCalendarPage()),
+            PostPage.id: (context) => PostPage(),
+            AddTagPage.id: (context) => AddTagPage(),
+            ChatPage.id: (context) => const ChatPage()
           },
         ));
   }
@@ -101,46 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Colors.red;
-    var hexCode = '0xFF${color.value.toRadixString(16).substring(2, 8)}';
-    Color newColor = Color(int.parse(hexCode));
-    print(hexCode);
-    print(newColor);
-
-    MainRepositoryImpl repositoryImpl = MainRepositoryImpl();
-    repositoryImpl
-        .singIn(email: 'pablank@bk.ru', password: 'pablank123')
-        .then((value) {
-      if (value != null) {
-        print(value.toString());
-      }
-    });
-    //repositoryImpl.getPost(Timestamp.now(), Timestamp.now());
-    repositoryImpl.getPost(Timestamp.now(), Timestamp.now()).listen((event) {
-      print(event);
-    });
-    repositoryImpl.addPost(
-      descriptoin: 'Описание чего то ',
-      tags: [
-        TagModel(name: 'работал', color: Colors.green),
-        TagModel(name: 'изобретал', color: Colors.yellow),
-      ],
-      // imagesUrl: ['img1', 'img2'],
-    );
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Container(
-          color: newColor,
-        ),
-      ),
+      body: Container(),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

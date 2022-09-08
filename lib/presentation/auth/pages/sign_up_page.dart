@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_why_do_i_awake_nights1/presentation/auth/bloc/auth_state.dart';
+import 'package:flutter_why_do_i_awake_nights1/presentation/calendar/bloc/calendar_cubit.dart';
 import 'package:flutter_why_do_i_awake_nights1/presentation/calendar/pages/main_calendar_page.dart';
 
 import '../bloc/auth_cubit.dart';
@@ -42,7 +43,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (prevState, currentState) {
           if (currentState is AuthSignUp) {
-            //Navigator.of(context).pushReplacementNamed(MainCalendarPage.id);
+            //context.read<CalendarCubit>().updateMonth(DateTime.now().month);
+            Navigator.of(context).pushReplacementNamed(MainCalendarPage.id);
           }
           if (currentState is AuthFailure) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(

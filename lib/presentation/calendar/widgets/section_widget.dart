@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class SectionWidget extends StatelessWidget {
   final int dayNumber;
-  const SectionWidget({Key? key, required this.dayNumber}) : super(key: key);
+  final Color? color;
+  const SectionWidget({Key? key, required this.dayNumber, this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class SectionWidget extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.1,
       height: MediaQuery.of(context).size.width * 0.1,
       decoration: BoxDecoration(
-        color: Theme.of(context).dividerColor,
+        color: color ?? Theme.of(context).disabledColor,
         border: Border.all(
           width: 2,
         ),
