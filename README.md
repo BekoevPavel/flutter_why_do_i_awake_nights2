@@ -1,6 +1,6 @@
 # flutter_why_do_i_awake_nights1
 
-A new Flutter project.
+Ios / Android Beta - Application for insomnia control.
 
 ## Getting Started
 
